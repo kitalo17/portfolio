@@ -7,6 +7,9 @@
     --color-primary-glow: rgba(59, 130, 246, 0.15);
     --color-cyan: #06b6d4;         /* Cyan */
     --color-cyan-glow: rgba(6, 182, 212, 0.15);
+    --color-gold: #f59e0b;         /* Gold */
+    --color-gold-glow: rgba(245, 158, 11, 0.15);
+    --color-gold-border: rgba(245, 158, 11, 0.35);
     --text-primary: #f8fafc;       /* Slate 50 */
     --text-muted: #94a3b8;         /* Slate 400 */
     --text-slate: #cbd5e1;         /* Slate 300 */
@@ -832,7 +835,7 @@ body {
 
 .exp-image-container {
     width: 100%;
-    height: 160px;
+    height: 250px;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 1.8rem;
@@ -958,6 +961,14 @@ body {
     border-radius: 12px;
 }
 
+.project-images-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+    width: 100%;
+}
+
 .project-item:hover .project-image-wrapper {
     transform: translateY(-5px) scale(1.03);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
@@ -974,11 +985,14 @@ body {
     .project-info {
         order: 2;
     }
-    .project-image-wrapper {
+    .project-images-column {
         order: 1;
         width: 100%;
         max-width: 500px;
         margin: 0 auto;
+    }
+    .project-image-wrapper {
+        width: 100%;
     }
 }
 
@@ -2068,4 +2082,270 @@ body {
     padding: 0.9rem;
     font-size: 1rem;
     box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
+}
+
+/* --- Premium Gold Theme & Spotlight Showcase --- */
+
+.hero-badges {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.hero-badges .badge {
+    margin-bottom: 0;
+}
+
+.badge-gold {
+    border-color: var(--color-gold-border) !important;
+    background: rgba(245, 158, 11, 0.05) !important;
+    color: #fef08a !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-dot.gold {
+    background-color: var(--color-gold);
+    box-shadow: 0 0 8px var(--color-gold);
+}
+
+/* Gold Shimmer Effect */
+.badge-gold::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(245, 158, 11, 0.25),
+        transparent
+    );
+    transform: skewX(-25deg);
+    animation: goldShimmer 5s infinite ease-in-out;
+}
+
+@keyframes goldShimmer {
+    0% { left: -150%; }
+    30% { left: 150%; }
+    100% { left: 150%; }
+}
+
+/* Featured Project Styling */
+.featured-project {
+    border-color: var(--color-gold-border) !important;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(245, 158, 11, 0.03) !important;
+}
+
+.featured-project:hover {
+    border-color: var(--color-gold) !important;
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(245, 158, 11, 0.15) !important;
+}
+
+/* Gold Ribbon */
+.gold-ribbon {
+    position: absolute;
+    top: 18px;
+    right: -36px;
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.35rem 2.5rem;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    z-index: 5;
+    letter-spacing: 0.05em;
+}
+
+/* Premium Gold Award Box */
+.p-stat-award-gold {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background: rgba(245, 158, 11, 0.04);
+    border: 1px solid rgba(245, 158, 11, 0.12);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.p-stat-award-gold .award-label {
+    font-size: 0.82rem;
+    color: #fef08a;
+    font-weight: 600;
+}
+
+/* Spotlight Section */
+.award-spotlight-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.award-spotlight-section::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    filter: blur(80px);
+}
+
+.award-spotlight-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.gold-glow-spotlight {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 75%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    filter: blur(40px);
+}
+
+.spotlight-award-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    z-index: 2;
+    filter: drop-shadow(0 15px 35px rgba(245, 158, 11, 0.25));
+    transition: var(--transition-slow);
+}
+
+.award-spotlight-image-wrapper:hover .spotlight-award-img {
+    transform: translateY(-5px) scale(1.02);
+    filter: drop-shadow(0 20px 45px rgba(245, 158, 11, 0.35));
+}
+
+.gold-tag {
+    color: var(--color-gold) !important;
+}
+
+.gold-tag::before {
+    background-color: var(--color-gold) !important;
+    box-shadow: 0 0 8px var(--color-gold) !important;
+}
+
+.gold-gradient-text {
+    background: linear-gradient(135deg, #f59e0b 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.spotlight-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.spotlight-desc {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.spotlight-impact-box {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.impact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.impact-num {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.impact-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Featured Gold Card in Credentials Tab */
+.featured-gold-card {
+    border-color: var(--color-gold-border) !important;
+    background: linear-gradient(135deg, rgba(14, 19, 34, 0.9) 0%, rgba(245, 158, 11, 0.03) 100%) !important;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(245, 158, 11, 0.05) !important;
+}
+
+.featured-gold-card:hover {
+    border-color: var(--color-gold) !important;
+    box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.4),
+        0 0 35px rgba(245, 158, 11, 0.12) !important;
+}
+
+.featured-gold-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #d97706, var(--color-gold));
+}
+
+.award-gold-badge-label {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-family: var(--font-heading);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fef08a;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid var(--color-gold-border);
+    padding: 0.25rem 0.65rem;
+    border-radius: 30px;
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+    .award-spotlight-section .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .award-spotlight-image-wrapper {
+        max-width: 300px;
+    }
 }
