@@ -42,6 +42,7 @@
 
     <!-- Hero Section -->
     <header class="hero-section" id="hero">
+        <canvas id="heroCanvas"></canvas>
         <div class="hero-grid grid-2 container">
             <div class="hero-content">
                 <div class="badge fade-in">
@@ -72,19 +73,19 @@
         <!-- Stats Bar -->
         <div class="stats-bar container">
             <div class="stat-item reveal">
-                <span class="stat-number gradient-text">10M+</span>
+                <span class="stat-number gradient-text" data-target="10" data-suffix="M+">0</span>
                 <span class="stat-label">สะสมผู้ป่วยบัตรทองที่ดูแล (A-MED Care)</span>
             </div>
             <div class="stat-item reveal">
-                <span class="stat-number text-cyan">10,000+</span>
+                <span class="stat-number text-cyan" data-target="10000" data-suffix="+">0</span>
                 <span class="stat-label">หน่วยบริการสุขภาพทั่วประเทศ</span>
             </div>
             <div class="stat-item reveal">
-                <span class="stat-number gradient-text">439K+</span>
+                <span class="stat-number gradient-text" data-target="439" data-suffix="K+">0</span>
                 <span class="stat-label">ผู้ป่วยดูแลที่บ้าน (DMS Home ward)</span>
             </div>
             <div class="stat-item reveal">
-                <span class="stat-number text-cyan">15+</span>
+                <span class="stat-number text-cyan" data-target="15" data-suffix="+">0</span>
                 <span class="stat-label">ผลงานลิขสิทธิ์และสิทธิบัตร</span>
             </div>
         </div>
@@ -277,6 +278,18 @@
                             <span>Digital Health</span>
                             <span>NHSO</span>
                             <span>Universal Healthcare</span>
+                        </div>
+                        <div class="p-stat-award">
+                            <span class="award-label">ได้รับรางวัลสุดยอดนวัตกรรม "7Innovation Awards 2026" (2569)</span>
+                            <div class="project-award-showcase">
+                                <div class="project-award-badge">
+                                    <svg class="gold-star" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <span>รางวัล Inventor Awards (ด้านสังคม)</span>
+                                </div>
+                                <div class="project-award-image-wrapper">
+                                    <img src="Inventor_award-2026.png" alt="รางวัล Inventor Awards 2026" class="project-award-img">
+                                </div>
+                            </div>
                         </div>
                         <a href="https://amed-care.in.th/" target="_blank" class="project-link">
                             Visit Project Website
@@ -527,6 +540,14 @@
                 <!-- Tab Content: Awards -->
                 <div class="tab-content active" id="awards">
                     <div class="awards-grid">
+                        <div class="award-card">
+                            <div class="award-image-container">
+                                <img src="Inventor_award-2026.png" alt="รางวัล Inventor Awards 2026" class="award-image">
+                            </div>
+                            <span class="award-year">2569</span>
+                            <h4>รางวัลสุดยอดนวัตกรรม 7Innovation Awards 2026 (รางวัล Inventor Awards ด้านสังคม)</h4>
+                            <p class="text-muted">ได้รับรางวัลผลงาน "A-MED Care ระบบบริการดูแลผู้ป่วยโรคทั่วไป" จากงาน "Thailand Synergy เพื่อ SMEs ไทยสู่ IDEs" เมื่อวันที่ 24 ก.ค. 2569 ณ PIM Convention Hall สถาบันการจัดการปัญญาภิวัฒน์</p>
+                        </div>
                         <div class="award-card">
                             <div class="award-image-container">
                                 <img src="values_of_land_award-2565.png" alt="รางวัลโล่ประกาศเกียรติคุณ ค่าของแผ่นดิน" class="award-image">
@@ -796,7 +817,7 @@
             </div>
             
             <div class="contact-form-wrapper reveal">
-                <form class="contact-form" id="contactForm" onsubmit="event.preventDefault(); alert('ส่งข้อความเรียบร้อยแล้ว (Demo Only)');">
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <label for="name">ชื่อผู้ติดต่อ / Name</label>
                         <input type="text" id="name" required placeholder="กรอกชื่อของคุณ">
@@ -831,6 +852,21 @@
             </div>
         </div>
     </footer>
+
+    <!-- Premium Success Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="premium-modal">
+            <div class="modal-glow"></div>
+            <div class="modal-icon-wrapper">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <h3 class="modal-title">ส่งข้อความเรียบร้อยแล้ว!</h3>
+            <p class="modal-text">ขอบคุณที่สนใจร่วมพัฒนานวัตกรรม ข้อความของคุณถูกส่งไปยังระบบเรียบร้อยแล้ว ผมจะติดต่อกลับโดยเร็วที่สุดครับ</p>
+            <button type="button" class="btn btn-primary modal-close-btn" id="modalCloseBtn">ตกลง</button>
+        </div>
+    </div>
 
     <!-- Script File -->
     <script src="script.js"></script>
