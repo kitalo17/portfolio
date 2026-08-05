@@ -1118,7 +1118,7 @@ body {
 
 .project-award-image-wrapper {
     width: 100%;
-    max-width: 240px;
+    max-width: 480px; /* Expanded by another 50% (Total 480px) */
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 
