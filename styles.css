@@ -851,6 +851,20 @@ body {
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.exp-image-container--workflow {
+    height: 280px;
+    background-color: #1a1f2e;
+}
+
+.exp-image-contain {
+    object-fit: contain;
+    padding: 0.35rem;
+}
+
+.exp-card:hover .exp-image-contain {
+    transform: scale(1.03);
+}
+
 .exp-image-container::after {
     content: '';
     position: absolute;
